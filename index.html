@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Tuo Nome - Curriculum Vitae</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #faf8f5;
+            --bg-secondary: #f0ebe3;
+            --text-primary: #2a2a2a;
+            --text-secondary: #5a5a5a;
+            --accent: #c67b5c;
+            --accent-light: #e8a88b;
+            --border: #d4cfc4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 40px 0 60px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 6px;
+            background: var(--accent);
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-light);
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2em;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        /* Bio Section */
+        .bio p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Experience and Education Items */
+        .experience-item,
+        .education-item {
+            margin-bottom: 35px;
+            padding-left: 20px;
+            border-left: 2px solid var(--bg-secondary);
+            transition: border-color 0.3s ease;
+        }
+
+        .experience-item:hover,
+        .education-item:hover {
+            border-left-color: var(--accent);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.4em;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .date {
+            font-size: 0.9em;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .company,
+        .institution {
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .description ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .description li {
+            margin-bottom: 8px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 8px 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .skill-list li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Il Tuo Nome</h1>
+            <p class="tagline">Sviluppatore Web • Designer • Problem Solver</p>
+            <div class="contact-info">
+                <a href="mailto:tuaemail@esempio.it">tuaemail@esempio.it</a>
+                <a href="tel:+39123456789">+39 123 456 789</a>
+                <a href="https://linkedin.com/in/tuoprofilo" target="_blank">LinkedIn</a>
+                <a href="https://github.com/tuoprofilo" target="_blank">GitHub</a>
+            </div>
+        </header>
+
+        <section class="bio">
+            <h2>Chi Sono</h2>
+            <p>
+                Ciao! Sono un professionista appassionato di tecnologia e innovazione, con una forte 
+                dedizione alla creazione di soluzioni eleganti e funzionali. La mia esperienza spazia 
+                dallo sviluppo frontend al design di interfacce utente, sempre con l'obiettivo di 
+                creare esperienze digitali memorabili.
+            </p>
+            <p>
+                Mi piace affrontare sfide complesse e trasformarle in opportunità di crescita. 
+                Sono sempre alla ricerca di nuovi progetti che mi permettano di imparare e contribuire 
+                con le mie competenze.
+            </p>
+        </section>
+
+        <section class="experience">
+            <h2>Esperienza Professionale</h2>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <h3>Senior Web Developer</h3>
+                    <span class="date">Gen 2022 - Presente</span>
+                </div>
+                <div class="company">TechCorp Solutions, Milano</div>
+                <div class="description">
+                    <ul>
+                        <li>Sviluppo e manutenzione di applicazioni web complesse utilizzando React e Node.js</li>
+                        <li>Collaborazione con team cross-funzionali per la progettazione di nuove funzionalità</li>
+                        <li>Ottimizzazione delle performance e implementazione di best practices</li>
+                        <li>Mentoring di sviluppatori junior e code review</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <h3>Web Developer</h3>
+                    <span class="date">Mar 2019 - Dic 2021</span>
+                </div>
+                <div class="company">Digital Agency, Roma</div>
+                <div class="description">
+                    <ul>
+                        <li>Creazione di siti web responsive e applicazioni per clienti diversificati</li>
+                        <li>Implementazione di design moderni utilizzando HTML, CSS e JavaScript</li>
+                        <li>Gestione di progetti da briefing iniziale a deployment finale</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <h3>Junior Developer</h3>
+                    <span class="date">Set 2017 - Feb 2019</span>
+                </div>
+                <div class="company">StartUp Innovativa, Torino</div>
+                <div class="description">
+                    <ul>
+                        <li>Supporto nello sviluppo di features per piattaforma web</li>
+                        <li>Bug fixing e testing di funzionalità</li>
+                        <li>Apprendimento rapido di nuove tecnologie e framework</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="education">
+            <h2>Formazione</h2>
+            
+            <div class="education-item">
+                <div class="item-header">
+                    <h3>Laurea Magistrale in Informatica</h3>
+                    <span class="date">2015 - 2017</span>
+                </div>
+                <div class="institution">Università degli Studi di Milano</div>
+                <div class="description">
+                    Specializzazione in Ingegneria del Software e Sistemi Web.
+                    Tesi: "Architetture moderne per applicazioni web scalabili"
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="item-header">
+                    <h3>Laurea Triennale in Informatica</h3>
+                    <span class="date">2012 - 2015</span>
+                </div>
+                <div class="institution">Università degli Studi di Milano</div>
+                <div class="description">
+                    Fondamenti di programmazione, algoritmi e strutture dati.
+                </div>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2>Competenze</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <ul class="skill-list">
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>React & Vue.js</li>
+                        <li>Responsive Design</li>
+                        <li>Tailwind CSS</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <ul class="skill-list">
+                        <li>Node.js & Express</li>
+                        <li>Python & Django</li>
+                        <li>REST APIs</li>
+                        <li>Database (SQL, MongoDB)</li>
+                        <li>Authentication & Security</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Altri</h3>
+                    <ul class="skill-list">
+                        <li>Git & GitHub</li>
+                        <li>Docker & CI/CD</li>
+                        <li>Figma & Adobe XD</li>
+                        <li>Agile/Scrum</li>
+                        <li>Testing (Jest, Cypress)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Il Tuo Nome. Tutti i diritti riservati.</p>
+        </footer>
+    </div>
+</body>
+</html>
